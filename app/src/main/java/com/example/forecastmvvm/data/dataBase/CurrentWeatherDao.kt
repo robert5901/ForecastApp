@@ -16,10 +16,10 @@ interface CurrentWeatherDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE) //если при помещении новых данных, там уже находятся другие данны, то заменяем их
     fun upsert(weatherEntry: CurrentWeatherEntry) //метод для обновления или помещения новых данных
 
-    @Query("select * from current_weather where id = $CURRENT_WEATHER_ID")
+    @Query("SELECT * FROM current_weather WHERE id = $CURRENT_WEATHER_ID")
     fun getWeatherMetric(): LiveData<MetricCurrentWeatherEntry> //получаем данные из класса с метрическими данными
 
-    @Query("select * from current_weather where id = $CURRENT_WEATHER_ID")
+    @Query("SELECT * FROM current_weather WHERE id = $CURRENT_WEATHER_ID")
     fun getWeatherImperial(): LiveData<ImperialCurrentWeatherEntry> //получаем данные из класса с империческими данными
 
 }

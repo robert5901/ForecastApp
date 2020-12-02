@@ -29,25 +29,6 @@ class ConnectivityInterceptorImpl(
         return chain.proceed(chain.request())
     }
 
-//    private fun connectivityManagerCallBack():ConnectivityManager.NetworkCallback{
-//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-//            networkCallBack = object : ConnectivityManager.NetworkCallback() {
-//
-//                override fun onLost(network: Network) {
-//                    super.onLost(network)
-//                    postValue(false)
-//                }
-//
-//                override fun onAvailable(network: Network) {
-//                    super.onAvailable(network)
-//
-//                }
-//            }
-//        }
-//    }
-
-
-
     @RequiresApi(Build.VERSION_CODES.M)
     fun isOnline(): Boolean {
         val connectivityManager =
@@ -70,6 +51,4 @@ class ConnectivityInterceptorImpl(
         }
         return false
     }
-
-
 }
